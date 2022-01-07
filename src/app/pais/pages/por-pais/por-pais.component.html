@@ -17,13 +17,16 @@
 
 <hr>
 
-<div class="alert alert-danger">
-  No se encontro nada con el termino kkkk
+<div *ngIf="hayError"
+class="alert alert-danger">
+  No se encontro nada con el termino {{termino}}
 </div>
 
 <div class="row">
   <div class="col">
-    <table class="table table-hover">
+    <table
+    *ngIf = "!hayError"
+    class="table table-hover">
       <thead>
         <tr>
           <th>#</th>
@@ -35,13 +38,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>flag</td>
-          <td>Dominican Republic</td>
-          <td>10000000</td>
+        <tr *ngFor="let pais of paises, let i = index" >
+          <td >{{i + 1}}</td>
           <td>
-            <a href="/pais/do">Ver País</a>
+            <img class="small-flag" [src]='pais.flag'>
+           </td>
+          <td>{{pais.name}}</td>
+          <td>{{pais.population | number}}</td>
+          <td>
+            <a [routerLink]="['/pais', pais.alpha2Code]" >Ver País</a>
           </td>
         </tr>
       </tbody>
