@@ -1,14 +1,14 @@
-<h3>Por Pais</h3>
+<h3>Por País</h3>
 <hr>
 
 <div class="row">
   <div class="col">
-    <app-pais-input 
+    <app-pais-input
     (onEnter)="buscar( $event )"
     (onDebounce)="sugerencias ( $event )"
     placeholder="Por Pais...."
     ></app-pais-input>
-   
+
   </div>
 </div>
 
@@ -22,6 +22,6 @@ class="alert alert-danger">
 <div class="row">
   <div class="col">
     <app-pais-tabla [paises]="paises"></app-pais-tabla>
-   
+
   </div>
 </div>

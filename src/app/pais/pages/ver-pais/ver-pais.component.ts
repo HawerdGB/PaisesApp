@@ -29,7 +29,8 @@ export class VerPaisComponent implements OnInit {
           tap(console.log))
        .subscribe( (pais) => this.pais = pais[0])
 
-     // codigo sin utiliza switchmap
+     // codigo sin utilizar switchmap
+     
     // this.activatedRoute.params
     // .subscribe( ({ id }) =>{
     //   console.log( id );

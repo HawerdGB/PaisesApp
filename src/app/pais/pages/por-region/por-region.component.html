@@ -1,27 +1,17 @@
-<h3>Por Region</h3>
-<hr>
-
+<h3>Seleccione la Region</h3>
 <div class="row">
   <div class="col">
-    <app-pais-input 
-    (onEnter)="buscar( $event )"
-    (onDebounce)="sugerencias ( $event )"
-    placeholder="Por Region...."
-    ></app-pais-input>
-   
+    <button *ngFor="let region of regiones"
+    class="btn btn-outline-primary me-2"
+    (click)="activarRegion(region)"
+    >{{region | titlecase}}</button>
   </div>
 </div>
-
 <hr>
-
-<div *ngIf="hayError"
-class="alert alert-danger">
-  No se encontro nada con el termino {{termino}}
-</div>
 
 <div class="row">
   <div class="col">
     <app-pais-tabla [paises]="paises"></app-pais-tabla>
-   
+
   </div>
 </div>

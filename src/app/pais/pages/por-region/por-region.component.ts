@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Countries } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
@@ -8,34 +8,31 @@ import { PaisService } from '../../services/pais.service';
   styles: [
   ]
 })
-export class PorRegionComponent  {
+export class PorRegionComponent implements OnInit {
+  regiones : string[] = ['africa', 'americas','asia', 'europe', 'oceania'];
+  regionActiva : string = '';
 termino: string = '';
-hayError: boolean = false;
 paises: Countries[] = [];
 
 
 constructor( private paisService : PaisService) { }
 
+activarRegion(region : string){
+  this.regionActiva = region;
+  this.buscar(region);
+}
+
 buscar(termino:string){
-  this.hayError = false;
-  this.termino = termino;
-  if(this.termino.length === 0){return}
 
-  this.paisService.buscarRegion(termino)
-  .subscribe((paises) => {
-    this.paises = paises;
-  }, (err) => {
-    this.hayError = true;
-    this.paises = [];
-  });
-
-
-}
-sugerencias (termino : string){
-  this.hayError = false;
-  //TODO : crear sugerencias
+this.paisService.buscarRegion(termino)
+.subscribe((paises) => {
+  this.paises = paises;
+});
 }
 
+ ngOnInit(): void {
+
+ }
 
 
 }

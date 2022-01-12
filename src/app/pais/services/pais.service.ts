@@ -7,10 +7,21 @@ import { Countries } from '../interfaces/pais.interface';
   providedIn: 'root'
 })
 export class PaisService {
+private _historialB : string[] = [];
+public resultadosB: Countries[] = [];
+
+ get historialB(){
+   return [...this._historialB];
+ }
 
   private apiUrl: string = "https://restcountries.com";
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient) {
+    if(localStorage.getItem('historial')){
+      this._historialB = JSON.parse(localStorage.getItem('historialB')!);
+       }
+   localStorage.getItem('historialB');
+   }
 
 
 
@@ -30,6 +41,16 @@ export class PaisService {
 
   buscarRegion(termino : string): Observable<Countries[] >
   {
+    termino = termino.trim().toLowerCase();
+
+      if(!this._historialB.includes( termino)){
+        this._historialB.unshift( termino );
+        this._historialB = this._historialB.splice(0,10);
+
+        localStorage.setItem('historialB',JSON.stringify(this._historialB) );
+      }
+
+
     const url = `${this.apiUrl}/v3.1/region/${termino}`;
 
     return this.http.get<Countries[] >(url);

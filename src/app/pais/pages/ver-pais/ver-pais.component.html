@@ -8,61 +8,55 @@ Espere por favor...
 
 
 <ng-template #divPais>
+  <div class="card" style="width: 20rem;">
 
-<div class="row">
-    <div class="col-12">
-        <h1>País: <small>{{ pais.name.common }}</small></h1>
+    <img class="card-img-top animate__animated animate__zoomIn" [src]="pais.flags.png" alt="Card image cap" >
+    <div class="card-body">
+      <h5 class="card-title">{{ pais.name.common}}, {{pais.capital}}</h5>
+      <p class="card-text">{{pais.subregion}}</p>
     </div>
-</div>
-
-<div class="row">
-
-    <div class="col-4">
-        <h3>Bandera</h3>
-        <img [src]="pais.flags.png" class="img-thumbnail" />
-    </div>
-
-    <div class="col">
-        <h3>Información</h3>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <strong>Capital</strong> {{ pais.capital }}
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong>Area</strong> {{ pais.area | number }} km<sup>2</sup>
+    </li>
+        <li class="list-group-item">
+            <strong>Población</strong> {{ pais.population | number }}
         </li>
-            <li class="list-group-item">
-                <strong>Población</strong> {{ pais.population | number }}
-            </li>
-            <li class="list-group-item">
-                <strong>Código numérico</strong> {{ pais.cca2 }}
-            </li>
-            <li class="list-group-item">
-                <strong>Código alpha3</strong> {{ pais.cca3 }}
-            </li>
-        </ul>
-    </div>
-
-
-</div>
-
-<h3>Traducciones</h3>
+        <li class="list-group-item">
+            <strong>Código numérico</strong> {{ pais.cca2 }}
+        </li>
+        <li class="list-group-item">
+          <strong>Ubicación</strong> {{ pais.latlng}}
+      </li>
+    </ul>
+    <div class="card-body">
+      <h5>Traducciones</h5>
 <div class="row">
     <div class="col">
 
-        <span class="badge bg-primary mr-1">{{ pais.translations.deu.common }}</span>
-        <span class="badge bg-primary mr-1">{{ pais.translations.spa.common }}</span>
-        <span class="badge bg-primary mr-1">{{ pais.translations.fra.common }}</span>
-        <span class="badge bg-primary mr-1">{{ pais.translations.jpn.common }}</span>
-        <span class="badge bg-primary mr-1">{{ pais.translations.ita.common }}</span>
-        <span class="badge bg-primary mr-1">{{ pais.translations.por.common }}</span>
-        <span class="badge bg-primary mr-1">{{ pais.translations.zho.common }}</span>
-        <span class="badge bg-primary mr-1">{{ pais.translations.nld.common }}</span>
-        <span class="badge bg-primary mr-1">{{ pais.translations.hrv.common }}</span>
-        <span class="badge bg-primary mr-1">{{ pais.translations.swe.common }}</span>
+        <span class="badge bg-primary me-1">{{ pais.translations.deu.common }}</span>
+        <span class="badge bg-primary me-1">{{ pais.translations.spa.common }}</span>
+        <span class="badge bg-primary me-1">{{ pais.translations.fra.common }}</span>
+        <span class="badge bg-primary me-1">{{ pais.translations.jpn.common }}</span>
+        <span class="badge bg-primary me-1">{{ pais.translations.ita.common }}</span>
+        <span class="badge bg-primary me-1">{{ pais.translations.por.common }}</span>
+        <span class="badge bg-primary me-1">{{ pais.translations.zho.common }}</span>
+        <span class="badge bg-primary me-1">{{ pais.translations.nld.common }}</span>
+        <span class="badge bg-primary me-1">{{ pais.translations.hrv.common }}</span>
+        <span class="badge bg-primary me-1">{{ pais.translations.swe.common }}</span>
 
     </div>
+    </div>
+  </div>
+
+
+
+
+
 </div>
 
-
-<!-- <pre class="mt-5">
+<!--
+ <pre class="mt-5">
     {{ pais | json }}
 </pre> -->
 
