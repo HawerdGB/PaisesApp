@@ -27,7 +27,7 @@ export class VerPaisComponent implements OnInit {
        .pipe(
           switchMap(( { id } ) => this.paisService.buscarPorCodigo( id )),
           tap(console.log))
-       .subscribe( (pais) => this.pais = pais)
+       .subscribe( (pais) => this.pais = pais[0])
 
      // codigo sin utiliza switchmap
     // this.activatedRoute.params
