@@ -1,4 +1,8 @@
 # PaisesApp
+![image](https://user-images.githubusercontent.com/54670092/149155444-19b8ac3f-89e8-4b6e-aac7-7fa5541fb2dc.png)
+
+![image](https://user-images.githubusercontent.com/54670092/149155297-e6d77ce2-4897-448e-b185-c62d5857c2c0.png)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.3.
 
